@@ -1,5 +1,5 @@
 export default {
-    name: 'nav-tabs',
+    name: 'navTabs',
     data() {
         return {
             editableTabsValue2: '1',
@@ -60,7 +60,7 @@ export default {
             for (let i = 0; i < tabs.length; i++) {
                 if (tabs[i].title == this.routerTabs.name) {
                     this.editableTabsValue2 = i+1+'';
-                    this.$router.push({path:tab.$attrs.url})
+                    this.$router.push({path:tab.$attrs?tab.$attrs.url : null})
                     return true
                 }
             }
@@ -69,8 +69,10 @@ export default {
     },
     watch:{
         // 函数名为监听的数据的名字
+        // https://cn.vuejs.org/v2/guide/computed.html
+        // 在这里不用计算属性的原因：需要在数据变化的时候执行其他操作
         routerTabs(newValue,oldValue){
-            this.jumpToTab(newValue)                
+            this.jumpToTab(newValue)
         }
     }
 }

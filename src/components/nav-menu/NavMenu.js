@@ -1,5 +1,5 @@
 export default {
-    name: 'nav-menu',
+    name: 'navMenu',
     data:function() {
         return {
             routerName: {},
@@ -16,7 +16,13 @@ export default {
         add(routerName){
             this.routerName = routerName
             this.$router.push({path:routerName.url})
-            console.log(this.$http)
+            this.$http.get('http://192.168.2.1:3000/demo1',{params:{asad:12324}}).then((result) => {
+                console.log(result);
+                console.log(this.$http.defaults);
+            }).catch((err)=>{
+                console.log(err);
+            })
+            
             this.$emit('routerName',{message:this.routerName})
         }
     }

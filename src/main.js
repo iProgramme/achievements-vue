@@ -5,23 +5,25 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import './common.css'
-import axios from 'axios'
+// import './common.css'
+import http from './core/http';
+import filterString from './filters/filterString'
 
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
-/* eslint-disable no-new */
 
+console.log('Vue.version:'+Vue.version);
 
 new Vue({
-  el: '#app',
-  router,
-  components: { 
-    'App':App,
-   },
-  template: '<App/>',
-  render: h => h(App)
+    el: '#app',
+    router,
+    components: {
+        'App': App,
+    },
+    template: '<App/>',
+    render: h => h(App)
 })
-Vue.prototype.$http = axios
+// 需对http进行一些处理
+Vue.prototype.$http = http
 

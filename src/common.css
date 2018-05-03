@@ -1,9 +1,0 @@
-html,body{
-    margin:0px;
-    padding:0px;
-    height: 100%;
-    overflow: hidden;
-}
-html,body,div,ul,li,ol{
-    box-sizing: border-box
-}

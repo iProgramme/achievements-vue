@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'page1',
+  name: 'login',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'

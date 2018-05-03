@@ -1,6 +1,6 @@
 <template>
   <div>
-    这是page1 ++ {{msg}}
+    这是page4 ++ {{msg}}
     <br>
     <br>
     <button @click="add">得到数据</button>
@@ -8,19 +8,21 @@
       <tr>
         <th>id</th>
         <th>flag</th>
+        <th>数量</th>
       </tr>
-      <tr v-for="item in arr" :key="item.app">
+      <tr v-for="item in filters" :key="item.flag">
         <td>{{item.app}}</td>
-        <td>{{item.flag}}</td>
+        <td>{{item.flag | filterString}}</td>
+        <td>{{item.number}}</td>
       </tr>
     </table>
   </div>
 </template>
 
 <script>
-import Page1 from "./page1";
+import Page4 from "./page4";
 export default {
-  ...Page1
+  ...Page4
 }
 </script>
 

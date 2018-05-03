@@ -1,12 +1,12 @@
 <template>
   <div>
-    404 NOT FIND
+    404 NOT FIND {{msg}}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'page1',
+  name: 'notfind',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'

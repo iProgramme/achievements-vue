@@ -1,19 +1,26 @@
 <template>
   <div>
-    这是page2 ++ {{msg}}
+    这是page3 ++ {{msg}}
     <br>
     <br>
+    <button @click="add">得到数据</button>
+    <table>
+      <tr>
+        <th>id</th>
+        <th>flag</th>
+      </tr>
+      <tr v-for="item in arr" :key="item.app">
+        <td>{{item.app}}</td>
+        <td>{{item.flag}}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
 <script>
+import Page3 from "./page3";
 export default {
-  name: 'page1',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+  ...Page3
 }
 </script>
 

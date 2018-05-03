@@ -3,13 +3,16 @@
     <!-- 导航 -->
     <nav-menu class="fl" v-on:routerName="RouterName"></nav-menu>
     <!-- header -->
-    <my-header></my-header>      
-    <!-- tabs -->
-    <nav-tabs class="over-hidden" :routerTabs="routerName"></nav-tabs>
-    <!-- 路由 -->
-    <keep-alive>
-      <router-view/>
-    </keep-alive>
+    <div class="over-hidden">
+      <my-header></my-header>      
+      <!-- tabs -->
+      <nav-tabs :router-tabs="routerName"></nav-tabs>
+      <!-- 路由 -->
+      <keep-alive>
+        <router-view/>
+      </keep-alive>
+    </div>
+    
   </div>
 </template>
 
@@ -29,7 +32,9 @@ export default {
       routerName:''
     }
   },
-  props:['routerTabs'],
+  props:{
+    routerTabs:String
+  },
   methods:{
     RouterName:function(data){
       this.routerName = data.message

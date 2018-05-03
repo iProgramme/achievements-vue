@@ -1,7 +1,7 @@
 <template>
   <div class="headers">
     这是顶部条
-    <span>这是span</span>
+    <span>这是span {{msg}}</span>
   </div>
 </template>
 
@@ -13,6 +13,6 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="less">
+<style lang="less" scoped>
 @import url(./header.less);
 </style>

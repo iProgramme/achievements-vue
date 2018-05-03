@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'page1',
+  name: 'dashboard',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
