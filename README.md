@@ -28,3 +28,7 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+> 该系统为某公司个人绩效考评系统
+
+> 一个人完成所有前端开发，采用vue—axios，从零开始

@@ -8,6 +8,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 // import './common.css'
 import http from './core/http';
 import filterString from './filters/filterString'
+import filterJson from './filters/filterJson'
 
 Vue.config.productionTip = false
 

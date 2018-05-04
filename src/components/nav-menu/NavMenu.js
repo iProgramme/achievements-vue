@@ -17,8 +17,8 @@ export default {
             this.routerName = routerName
             this.$router.push({path:routerName.url})
             this.$http.get('http://192.168.2.1:3000/demo1',{params:{asad:12324}}).then((result) => {
-                console.log(result);
-                console.log(this.$http.defaults);
+                // console.log(result);
+                // console.log(this.$http.defaults);
             }).catch((err)=>{
                 console.log(err);
             })

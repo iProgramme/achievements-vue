@@ -10,7 +10,7 @@
         <th>flag</th>
         <th>数量</th>
       </tr>
-      <tr v-for="item in filters" :key="item.flag">
+      <tr v-for="item in filters" :key="item.app">
         <td>{{item.app}}</td>
         <td>{{item.flag | filterString}}</td>
         <td>{{item.number}}</td>

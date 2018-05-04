@@ -4,16 +4,9 @@
     <br>
     <br>
     <button @click="add">得到数据</button>
-    <table>
-      <tr>
-        <th>id</th>
-        <th>flag</th>
-      </tr>
-      <tr v-for="item in arr" :key="item.app">
-        <td>{{item.app}}</td>
-        <td>{{item.flag}}</td>
-      </tr>
-    </table>
+    <div>
+        {{arr | filterJson}}
+    </div>
   </div>
 </template>
 

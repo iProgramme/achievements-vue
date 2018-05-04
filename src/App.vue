@@ -11,5 +11,6 @@ export default {
 </script>
 
 <style lang="less">
+@import url(./assets/iconfont/iconfont.css);
 @import url(./App.less);
 </style>
