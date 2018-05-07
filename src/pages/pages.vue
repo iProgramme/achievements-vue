@@ -32,9 +32,6 @@ export default {
       routerName:''
     }
   },
-  props:{
-    routerTabs:String
-  },
   methods:{
     RouterName:function(data){
       this.routerName = data.message

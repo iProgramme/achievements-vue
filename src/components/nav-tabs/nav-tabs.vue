@@ -14,6 +14,9 @@
         :url="item.url">
         </el-tab-pane>
     </el-tabs>
+    <div class="disN">
+        {{navTabs}}
+    </div>
 </div>
 </template>
 

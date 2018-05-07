@@ -15,9 +15,9 @@ export default {
                 url:''
             }],
             tabIndex: 2,
+            routerTabs:{}
         }
     },
-    props:['routerTabs'], // 期望得到的父组件的值
     methods: {
         // 跳转到对应的路由的页面
         jumpToTab(tab) {
@@ -67,12 +67,10 @@ export default {
             return false
         }
     },
-    watch:{
-        // 函数名为监听的数据的名字
-        // https://cn.vuejs.org/v2/guide/computed.html
-        // 在这里不用计算属性的原因：需要在数据变化的时候执行其他操作
-        routerTabs(newValue,oldValue){
-            this.jumpToTab(newValue)
+    computed:{
+        navTabs(){
+            this.routerTabs = this.$store.state.routerName
+            this.jumpToTab(this.$store.state)
         }
     }
 }

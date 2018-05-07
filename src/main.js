@@ -10,15 +10,20 @@ import http from './core/http';
 import filterString from './filters/filterString'
 import filterJson from './filters/filterJson'
 
+import Vuex from 'vuex'
+import store from './vuex/store'
+
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
+Vue.use(Vuex)
 
 console.log('Vue.version:'+Vue.version);
 
 new Vue({
     el: '#app',
     router,
+    store,
     components: {
         'App': App,
     },

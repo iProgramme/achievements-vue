@@ -4,6 +4,7 @@
     <br>
     <br>
     <button @click="add">得到数据</button>
+    <span class="iconfont icon-huabanfuben16"></span>
     <div>
         {{arr | filterJson}}
     </div>
