@@ -1,21 +1,20 @@
 <template>
 <div>
     <el-tabs 
-    v-model="editableTabsValue2" 
+    v-model="activeTab" 
     type="card" 
     closable 
     @tab-remove="removeTab" 
     @tab-click="jumpToTab">
         <el-tab-pane 
         v-for="item in editableTabs2" 
-        :key="item.name" 
+        :key="item.url" 
         :label="item.title" 
-        :name="item.name" 
-        :url="item.url">
+        :name="item.url">
         </el-tab-pane>
     </el-tabs>
     <div class="disN">
-        {{navTabs}}
+        <!-- {{navTabs}} -->
     </div>
 </div>
 </template>

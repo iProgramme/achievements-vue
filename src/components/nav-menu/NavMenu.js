@@ -22,7 +22,7 @@ export default {
             }).catch((err)=>{
                 console.log(err);
             })
-            this.$store.commit('newRouterName',this.routerName)
+            this.$emit('routerName',{message:this.routerName})
         }
     }
 }
