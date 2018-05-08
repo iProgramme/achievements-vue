@@ -10,11 +10,14 @@ export default {
     },
     methods: {
         add:function(){
-            this.$http.get('http://192.168.2.1:3000/demo1',{params:{asad:12324}}).then((result) => {
-                // console.log(result);
-                this.arr = result
+            this.$http.get('/demo1',{params:{asad:12324}}).then((result) => {
+                console.log(result);
+                if (result) {
+                    this.arr = result
+                }
             }).catch((err)=>{
                 console.log(err);
+                
             })
         },
         filterIT:function(arr){
@@ -28,6 +31,10 @@ export default {
         filters:function(){
             return this.filterIT(this.arr)
         }
+    },
+    created:function(){
+        console.log('1');
+        
     },
     activated:function(){
         console.log(`切换到所在路由的时候，触发${this.count++}次`);
