@@ -3,7 +3,18 @@
     这是page4 ++ {{msg}}
     <br>
     <br>
+    <div class="block">
+        <span class="demonstration">默认</span>
+        <el-date-picker
+        v-model="value"
+        type="date"
+        placeholder="选择日期">
+        </el-date-picker>
+    </div>
+    <br>
+    <br>
     <button @click="add">得到数据</button>
+    <el-button type="primary" @click="add">主要按钮</el-button>
     <table>
       <tr>
         <th>id</th>

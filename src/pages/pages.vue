@@ -1,52 +1,70 @@
 <template>
-  <div class="clear page-content">
+  <el-container class="clear page-content">
     <!-- 导航 -->
-    <nav-menu class="fl" v-on:routerName="RouterName"></nav-menu>
-    <!-- header -->
-    <div class="over-hidden">
-      <my-header></my-header>      
-      <!-- tabs -->
-      <nav-tabs :router-tabs="routerName"></nav-tabs>
-      <!-- 路由 -->
-      <keep-alive>
-        <router-view/>
-      </keep-alive>
-    </div>
+    <el-aside>
+        <div class="border-right" style="background:grey;color:yellow">logo</div>
+        <nav-menu v-on:routerName="RouterName" :router-navs="routerNavslist"></nav-menu>
+    </el-aside>
+    <el-container>
+        <!-- header -->        
+        <el-header>顶部</el-header>
+        <!-- tabs -->
+        <nav-tabs :router-tabs="routerName" :router-navs="routerNavslist"></nav-tabs>
+        <!-- 路由 -->
+        <el-main>
+            <keep-alive>
+                <router-view/>
+            </keep-alive>
+        </el-main>
+    </el-container>
+
     
-  </div>
+  </el-container>
 </template>
 
 <script>
 import header from '../components/header/header.vue'
 import navMenu from '../components/nav-menu/nav-menu.vue'
 import navTabs from '../components/nav-tabs/nav-tabs.vue'
+import { setTimeout } from 'timers';
 export default {
-  name: "pages",
-  components: {
-    "my-header": header,
-    "nav-menu":navMenu,
-    "nav-tabs":navTabs
-  },
-  data:function(){
-    return {
-      routerName:''
+    name: "pages",
+    components: {
+        "my-header": header,
+        "nav-menu":navMenu,
+        "nav-tabs":navTabs
+    },
+    data:function(){
+        return {
+        routerName:'',
+        routerNavslist:[]
+        }
+    },
+    props:{
+        routerTabs:String,
+        routerNavs:Array
+    },
+    methods:{
+        RouterName:function(data){
+        this.routerName = data.message
+        }
+    },
+    created:function(){
+        setTimeout(()=>{
+            this.routerNavslist = [
+                {name:'仪表盘',url:'/dashboard'},
+                {name:'页面1',url:'/page1'},
+                {name:'页面4',url:'/page4'}
+            ]
+        },1000)
     }
-  },
-  props:{
-    routerTabs:String
-  },
-  methods:{
-    RouterName:function(data){
-      this.routerName = data.message
-    }
-  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .page-content{
-  height: 100%;
-  overflow: auto;
+    height: 100%;
+    overflow: auto;
 }
 </style>

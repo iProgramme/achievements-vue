@@ -2,23 +2,17 @@ export default {
     name: 'navTabs',
     data() {
         return {
-            activeTab: '/page2',
-            editableTabs2: [{
-                title: 'Tab 1',
-                name:'/page2',
-                url:'/page2'
-            }, {
-                title: 'Tab 2',
-                name:'/page3',
-                url:'/page3'
-            }],
-            tabIndex: 2
+            activeTab: '',
+            editableTabs2: [],
+            tabIndex: 0
         }
     },
-    props:['routerTabs'],
+    props:['routerTabs','routerNavs'],
     methods: {
         // 跳转到对应的路由的页面
         jumpToTab(tab) {
+            console.log(this.routerNavs);
+            
             // 判断标签栏是否已有标签
             if (this.judgeTab(tab)) {
                 return
@@ -28,6 +22,7 @@ export default {
                 url:this.routerTabs.url,
                 name:this.routerTabs.url
             });
+            document.title = this.routerTabs.name
             this.activeTab = this.routerTabs.url;
             this.$router.push({path:tab.url})
         },
@@ -59,7 +54,7 @@ export default {
                     return false
                 }
             })
-            console.log(obj);
+            // console.log(obj);
             if(obj){
                 // 标签切换
                 this.activeTab = obj.name
@@ -69,22 +64,27 @@ export default {
             }else{
                 return false
             }
-            
-            // let tabs = this.editableTabs2;
-            // for (let i = 0; i < tabs.length; i++) {
-            //     if (tabs[i].title == this.routerTabs.name) {
-            //         this.activeTab = tabs[i].title;
-            //         // this.$router.push({path:tab.$attrs?tab.$attrs.url : null})
-            //         return true
-            //     }
-            // }
         }
     },
     watch:{
         routerTabs(newValue,oldValue){
-            // console.log(newValue);
-            
+            console.log(newValue);
+            document.title = this.routerTabs.name
             this.jumpToTab(newValue)
+        },
+        routerNavs(newValue){
+            var activeTab = newValue.find((item)=>{
+                return item.url == this.$route.path
+            })
+            document.title = activeTab.name
+            var obj = {
+                title:activeTab.name,
+                url:activeTab.url,
+                name:activeTab.url
+            }
+            this.activeTab = obj.url
+            this.editableTabs2 = [obj]
+            // console.log(app);
         }
     }
 }

@@ -14,7 +14,7 @@ export default {
         add:function(){
             console.log(this);
             
-            this.$http.get('http://192.168.2.1:3000/demo2',{params:{asad:12324}}).then((result) => {
+            this.$http.get('/api/student',{params:{id:'zhangsan',uu:1}}).then((result) => {
                 console.log(result);
                 this.arr = result
             }).catch((err)=>{

@@ -1,6 +1,8 @@
 <template>
   <div>
-    404 NOT FIND {{msg}}
+    404 NOT FIND 
+    <br>
+    {{msg}}
   </div>
 </template>
 

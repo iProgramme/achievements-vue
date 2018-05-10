@@ -5,11 +5,13 @@ export default {
             arr:[{app:1,flag:true,number:200},
                 {app:2,flag:false,number:201}],
             msg:'离开交互稿',
-            count:0
+            count:0,
+            value:new Date()
         }
     },
     methods: {
         add:function(){
+            console.log(this.value.getTime());
             this.$http.get('/demo1',{params:{asad:12324}}).then((result) => {
                 console.log(result);
                 if (result) {
