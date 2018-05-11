@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import 'element-ui/lib/theme-chalk/index.css'
-import './theme/index.css'
+// import './theme/index.css'
 import ElementUI from 'element-ui'
 import http from './core/http';
 // 自定义过滤器

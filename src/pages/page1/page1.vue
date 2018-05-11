@@ -8,7 +8,6 @@
     <div>
         {{arr | filterJson}}
     </div>
-    <el-button type="success">添加行</el-button>
     <el-table
     :data="tableData3"
     :span-method="objectSpanMethod"

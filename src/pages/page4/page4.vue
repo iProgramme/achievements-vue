@@ -11,6 +11,21 @@
         placeholder="选择日期">
         </el-date-picker>
     </div>
+    <!-- source-tree -->
+    <div>
+        <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+    </div>
+    <!-- 上传 -->
+    <el-upload
+        class="upload-demo"
+        action="https://jsonplaceholder.typicode.com/posts/"
+        multiple
+        :limit="3"
+        :file-list="fileList"
+        :auto-upload="false">
+        <el-button size="small" type="primary">点击上传</el-button>
+        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+    </el-upload>
     <br>
     <br>
     <button @click="add">得到数据</button>
