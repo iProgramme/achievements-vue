@@ -32,6 +32,10 @@ export default {
             setTimeout(()=>{
                 this.defaultActiveNow = this.$route.path
             },0)
+        },
+        $route(newValue){
+            console.log(newValue);
+            
         }
     }
 }

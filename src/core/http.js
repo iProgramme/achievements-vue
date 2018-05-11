@@ -17,9 +17,9 @@ axios.interceptors.response.use((response) => {
     return response;
 }, function (error) {
     if (error.response) {
-        console.log('Error:'+error.response);
+        console.error(error);
     }else{
-        console.log('Error:'+error.message);
+        console.error(error.message);
         
     }
 });

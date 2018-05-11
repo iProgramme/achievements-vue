@@ -45,18 +45,26 @@ export default {
         routerNavs:Array
     },
     methods:{
-        RouterName:function(data){
-        this.routerName = data.message
+        RouterName(data){
+            this.routerName = data.message
+        },
+        getNavs(){
+            // this.$http.get('/navs').then((data)=>{
+                
+            // })
+            setTimeout(()=>{
+                this.routerNavslist = [
+                    {name:'仪表盘',url:'/dashboard'},
+                    {name:'页面1',url:'/page1'},
+                    {name:'页面4',url:'/page4'}
+                ]
+            },100)
         }
     },
     created:function(){
-        setTimeout(()=>{
-            this.routerNavslist = [
-                {name:'仪表盘',url:'/dashboard'},
-                {name:'页面1',url:'/page1'},
-                {name:'页面4',url:'/page4'}
-            ]
-        },1000)
+        this.getNavs()
+        
+        
     }
 };
 </script>

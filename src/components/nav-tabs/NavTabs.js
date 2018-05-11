@@ -11,7 +11,7 @@ export default {
     methods: {
         // 跳转到对应的路由的页面
         jumpToTab(tab) {
-            console.log(this.routerNavs);
+            // console.log(this.routerNavs);
             
             // 判断标签栏是否已有标签
             if (this.judgeTab(tab)) {
@@ -68,7 +68,7 @@ export default {
     },
     watch:{
         routerTabs(newValue,oldValue){
-            console.log(newValue);
+            // console.log(newValue);
             document.title = this.routerTabs.name
             this.jumpToTab(newValue)
         },
