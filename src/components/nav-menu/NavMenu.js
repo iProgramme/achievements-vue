@@ -18,12 +18,6 @@ export default {
         add(routerName){
             this.routerName = routerName
             this.$router.push({path:routerName.url})
-            // this.$http.get('/demo1',{params:{asad:12324}}).then((result) => {
-            //     // console.log(result);
-            //     // console.log(this.$http.defaults);
-            // }).catch((err)=>{
-            //     console.log(err);
-            // })
             this.$emit('routerName',{message:this.routerName})
         }
     },
@@ -35,7 +29,7 @@ export default {
         },
         $route(newValue){
             console.log(newValue);
-            
+           
         }
     }
 }

@@ -70,7 +70,9 @@ export default {
         routerTabs(newValue,oldValue){
             // console.log(newValue);
             document.title = this.routerTabs.name
-            this.jumpToTab(newValue)
+            if (newValue.url != '/dashbord') {
+                this.jumpToTab(newValue)
+            }
         },
         routerNavs(newValue){
             var activeTab = newValue.find((item)=>{

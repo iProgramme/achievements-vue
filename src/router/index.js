@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import page1 from '../pages/page1/page1.vue'
+import page3 from '../pages/page3/page3.vue'
 import page4 from '../pages/page4/page4.vue'
 import filialeTask from '../pages/filialeTask/filialeTask.vue'
 import filialeTaskDetail from '../pages/filialeTaskDetail/filialeTaskDetail.vue'
@@ -256,6 +257,11 @@ export default new Router({
             path: 'page1',
             name: 'page1',
             component: page1
+        },
+        {
+            path: 'page3',
+            name: 'page3',
+            component: page3
         },
         {
             path: 'page4',

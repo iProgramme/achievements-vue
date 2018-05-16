@@ -1,19 +1,20 @@
 <template>
   <div>
-    这是page3 ++ {{msg}}
-    <br>
-    <br>
-    <button @click="add">得到数据</button>
-    <table>
-      <tr>
-        <th>id</th>
-        <th>flag</th>
-      </tr>
-      <tr v-for="item in arr" :key="item.app">
-        <td>{{item.app}}</td>
-        <td>{{item.flag}}</td>
-      </tr>
-    </table>
+        <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
+        <el-form-item label="密码" prop="pass">
+            <el-input type="password" v-model="ruleForm2.pass" auto-complete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="确认密码" prop="checkPass">
+            <el-input type="password" v-model="ruleForm2.checkPass" auto-complete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="年龄" prop="age">
+            <el-input v-model.number="ruleForm2.age" @keyup.enter.native="submitForm('ruleForm1111')"></el-input>
+        </el-form-item>
+        <el-form-item>
+            <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
+            <el-button @click="resetForm('ruleForm2')">重置</el-button>
+        </el-form-item>
+        </el-form>
   </div>
 </template>
 

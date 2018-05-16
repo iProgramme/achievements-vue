@@ -54,8 +54,9 @@ export default {
             // })
             setTimeout(()=>{
                 this.routerNavslist = [
-                    {name:'仪表盘',url:'/dashboard'},
+                    {name:'首页',url:'/dashboard'},
                     {name:'页面1',url:'/page1'},
+                    {name:'页面3',url:'/page3'},
                     {name:'页面4',url:'/page4'}
                 ]
             },100)
