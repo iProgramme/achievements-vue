@@ -16,7 +16,7 @@ import store from './vuex/store'
 // 阻止 vue 在启动时生成生产提示
 Vue.config.productionTip = false
 
-Vue.use(ElementUI)
+Vue.use(ElementUI,{ size: 'small' })
 Vue.use(Vuex)
 
 console.log('Vue.version:'+Vue.version);

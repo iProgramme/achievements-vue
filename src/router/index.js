@@ -267,15 +267,16 @@ export default new Router({
             path: 'page4',
             name: 'page4',
             component:page4
+        },
+        {
+            path: '*',
+            name: 'notfind',
+            component: notfind
         }
         
         ]
     },
-    {
-        path: '*',
-        name: 'notfind',
-        component: notfind
-    }
+    
     
   ]
 })

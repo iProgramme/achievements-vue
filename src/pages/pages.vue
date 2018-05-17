@@ -7,7 +7,18 @@
     </el-aside>
     <el-container>
         <!-- header -->        
-        <el-header>顶部</el-header>
+        <el-header>
+            <div class="headers clear">
+                <h1 class="fl">绩效考核管理系统</h1>
+                <div class="fr">
+                    <ul class="header-person">
+                        <li><span>你好，xxx</span></li>
+                        <li><a href="javascript:;"><i class="el-icon-location"></i>修改密码</a></li>
+                        <li><a href="javascript:;"><i class="el-icon-location"></i>退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </el-header>
         <!-- tabs -->
         <nav-tabs :router-tabs="routerName" :router-navs="routerNavslist"></nav-tabs>
         <!-- 路由 -->
@@ -55,6 +66,7 @@ export default {
             setTimeout(()=>{
                 this.routerNavslist = [
                     {name:'首页',url:'/dashboard'},
+                    {name:'分公司任务管理',url:'/filialeTask'},
                     {name:'页面1',url:'/page1'},
                     {name:'页面3',url:'/page3'},
                     {name:'页面4',url:'/page4'}
@@ -75,5 +87,12 @@ export default {
 .page-content{
     height: 100%;
     overflow: auto;
+}
+header{
+    border-bottom:1px solid #bebebe
+}
+.header-person li{
+    float:left;
+    padding:0 10px
 }
 </style>

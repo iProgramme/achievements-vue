@@ -1,16 +1,12 @@
 <template>
-  <div>3456789</div>
+  <div>啥也没有，准备跳回去</div>
 </template>
 
 <script>
+import filialeTaskDetail from "./filialeTaskDetail";
 export default {
-    name: "pages",
-    
-    data:function(){
-        return {
-        }
-    }
-};
+  ...filialeTaskDetail
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

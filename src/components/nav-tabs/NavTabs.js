@@ -3,7 +3,7 @@ export default {
     data() {
         return {
             activeTab: '',
-            editableTabs2: [],
+            editableTabs2: [{title:'首页',name:'/dashboard',url:'/dashboard'}],
             tabIndex: 0
         }
     },
@@ -12,7 +12,6 @@ export default {
         // 跳转到对应的路由的页面
         jumpToTab(tab) {
             // console.log(this.routerNavs);
-            
             // 判断标签栏是否已有标签
             if (this.judgeTab(tab)) {
                 return
@@ -79,13 +78,19 @@ export default {
                 return item.url == this.$route.path
             })
             document.title = activeTab.name
+            if (activeTab.url == '/dashboard') {
+                this.activeTab = activeTab.url
+                return
+            }
             var obj = {
                 title:activeTab.name,
                 url:activeTab.url,
                 name:activeTab.url
             }
-            this.activeTab = obj.url
-            this.editableTabs2 = [obj]
+            this.editableTabs2.push(obj)            
+            this.activeTab = activeTab.url
+            console.log(this.editableTabs2);
+            
             // console.log(app);
         }
     }

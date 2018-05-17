@@ -12,7 +12,6 @@ html,body,div,ul,li,ol{
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
     color: #2c3e50;
     height: 100%;
     overflow: hidden;
@@ -26,9 +25,57 @@ html,body,div,ul,li,ol{
 .disN{display: none!important;}
 .over-hidden{overflow: hidden;}
 .border-right{border-right: solid 1px #e6e6e6}
+ul,ol,li{list-style: none;}
+a{text-decoration: none;color:#000}
 
+// 变量
+.text-center{
+    text-align: center;
+}
 
 // 首个tab不可关闭
 .el-tabs__nav > div:first-child > span{
     display: none;
+}
+
+// 横条，透明
+.main-space{
+    height: 20px;
+    background: transparent;
+}
+// 通用搜索表单域
+form.el-form{
+    position: relative;
+    .el-form-item{
+        width: 20%;
+    }
+    .open-dialog{
+        width: 20%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-align: right;
+    }
+    .el-form-item.is-success .el-input__inner{
+        border-color:#d8dce5;
+    }
+}
+// 通用表格样式
+table[class^='el-table']{
+    th,td{
+        .text-center
+    }
+}
+// 通用分页样式
+.el-pagination{
+    .text-center;
+}
+// 通用弹窗样式
+.performance-dialog{
+    form.demo-ruleForm{
+        width: 400px;
+        .el-form-item{
+            width: auto;
+        }
+    } 
 }
