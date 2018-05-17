@@ -4,15 +4,26 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  // 定义状态
-  state: {
-    routerName:null
-  },
-  mutations:{
-      newRouterName(state,obj){
-          state.routerName = obj
-      }
-  }
+    // 定义状态
+    state: {
+        routerArray:[],
+        // 当前nav
+        routerName:{},
+        // 已有的tab nav
+        navTabs:[{title:'首页',name:'/dashboard',url:'/dashboard'}]
+    },
+    mutations:{
+        setRouterName(state,obj){
+            state.routerName = obj
+            let flag = state.navTabs.find(item=>item.url == obj.url)
+            if(!flag){
+                state.navTabs.push(obj)
+            }
+        },
+        deleteRouterName(state,str){
+            state.navTabs = state.navTabs.filter(item=>item.url!=str)
+        }
+    }
 })
 
 export default store

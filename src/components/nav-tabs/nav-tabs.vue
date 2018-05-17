@@ -7,7 +7,7 @@
     @tab-remove="removeTab" 
     @tab-click="jumpToTab">
         <el-tab-pane 
-        v-for="item in editableTabs2" 
+        v-for="item in editableTabs" 
         :key="item.url" 
         :label="item.title" 
         :name="item.url">

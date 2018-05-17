@@ -23,9 +23,9 @@
                     <i class="el-icon-location"></i>
                     <span>Go to页面2</span>
                 </el-menu-item>
-                <el-menu-item :index="item.url" v-for="item in routerNavs" :key="item.url" @click="add(item)">
+                <el-menu-item :index="item.url" v-for="item in routerNavslist" :key="item.url" @click="add(item)">
                     <i class="el-icon-location"></i>
-                    <span>{{item.name}}</span>
+                    <span>{{item.title}}</span>
                 </el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group>

@@ -3,7 +3,7 @@
     <!-- 导航 -->
     <el-aside>
         <div class="border-right" style="background:grey;color:yellow">logo</div>
-        <nav-menu v-on:routerName="RouterName" :router-navs="routerNavslist"></nav-menu>
+        <nav-menu ></nav-menu>
     </el-aside>
     <el-container>
         <!-- header -->        
@@ -20,7 +20,7 @@
             </div>
         </el-header>
         <!-- tabs -->
-        <nav-tabs :router-tabs="routerName" :router-navs="routerNavslist"></nav-tabs>
+        <nav-tabs></nav-tabs>
         <!-- 路由 -->
         <el-main>
             <keep-alive>
@@ -46,38 +46,7 @@ export default {
         "nav-tabs":navTabs
     },
     data:function(){
-        return {
-        routerName:'',
-        routerNavslist:[]
-        }
-    },
-    props:{
-        routerTabs:String,
-        routerNavs:Array
-    },
-    methods:{
-        RouterName(data){
-            this.routerName = data.message
-        },
-        getNavs(){
-            // this.$http.get('/navs').then((data)=>{
-                
-            // })
-            setTimeout(()=>{
-                this.routerNavslist = [
-                    {name:'首页',url:'/dashboard'},
-                    {name:'分公司任务管理',url:'/filialeTask'},
-                    {name:'页面1',url:'/page1'},
-                    {name:'页面3',url:'/page3'},
-                    {name:'页面4',url:'/page4'}
-                ]
-            },100)
-        }
-    },
-    created:function(){
-        this.getNavs()
-        
-        
+        return {}
     }
 };
 </script>
