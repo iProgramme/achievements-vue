@@ -62,7 +62,9 @@
         </el-table-column>
         <el-table-column label="操作">
             <template slot-scope="scope">
-                <el-button type="text" @click="tiaozhuan">查看详情</el-button>
+                <el-button type="text">
+                    <router-link to='/filialeTaskDetail'>查看详情</router-link>
+                </el-button>
                 <el-button type="text">删除</el-button>
                 <el-button type="text">分发</el-button>
             </template>

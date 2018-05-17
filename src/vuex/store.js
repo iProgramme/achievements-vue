@@ -14,7 +14,16 @@ const store = new Vuex.Store({
     },
     mutations:{
         setRouterName(state,obj){
-            state.routerName = obj
+            obj = obj || {}
+            for (const key in obj) {
+                if(typeof obj[key] == 'string'){
+                    obj[key].replace('Detail','')
+                }
+            }
+            state.routerName = obj;
+            
+            console.log(obj);
+            
             let flag = state.navTabs.find(item=>item.url == obj.url)
             if(!flag){
                 state.navTabs.push(obj)

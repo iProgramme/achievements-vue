@@ -85,17 +85,10 @@ export default {
         },
         // 关闭弹窗
         handleClose(done) {
-            this.$confirm('确认关闭？')
-              .then(_ => {
-                done();
-              })
-              .catch(_ => {});
-        },
-        tiaozhuan(){
-            this.$router.push({path:'/filialeTaskDetail'})
+        
         }
     },
-    created:function(){
+    created(){
         
     }
 }

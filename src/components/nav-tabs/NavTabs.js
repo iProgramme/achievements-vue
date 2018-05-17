@@ -14,7 +14,7 @@ export default {
         },
         // 移除tab
         removeTab(targetName) {
-            console.log(targetName);
+            console.log(this.$store.state);
             let obj;
             let arr = this.$store.state.navTabs;
             // 判断是否为当前页

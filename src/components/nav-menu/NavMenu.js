@@ -28,6 +28,7 @@ export default {
                 this.routerNavslist = [
                     {name:'/dashboard',url:'/dashboard',title:'首页'},
                     {name:'/filialeTask',url:'/filialeTask',title:'分公司任务管理'},
+                    {name:'/filialeTaskDetail',url:'/filialeTaskDetail',title:'分公司任务管理',flag:true},
                     {name:'/page1',url:'/page1',title:'页面1'},
                     {name:'/page3',url:'/page3',title:'页面3'},
                     {name:'/page4',url:'/page4',title:'页面4'}
