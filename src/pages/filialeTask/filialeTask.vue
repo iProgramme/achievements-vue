@@ -63,7 +63,7 @@
         <el-table-column label="操作">
             <template slot-scope="scope">
                 <el-button type="text">
-                    <router-link to='/filialeTaskDetail'>查看详情</router-link>
+                    <router-link :to="{path:'/filialeTaskDetail',query:{id:scope.row.beginTime}}">查看详情</router-link>
                 </el-button>
                 <el-button type="text">删除</el-button>
                 <el-button type="text">分发</el-button>

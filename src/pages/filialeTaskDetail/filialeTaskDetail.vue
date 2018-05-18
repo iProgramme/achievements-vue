@@ -2,6 +2,9 @@
   <div>啥也没有，准备跳回去
       <br>
       <router-link to='/filialeTask'>返回</router-link>
+      <div>
+          这是传过来的值：{{$route.query.id}}
+      </div>
   </div>
 </template>
 

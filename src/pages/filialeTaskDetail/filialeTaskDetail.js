@@ -8,8 +8,7 @@ export default {
     methods: {
         
     },
-    created:function(){
-        console.log('jinlaile');
-        
+    activated:function(){
+        console.log(this.$route.query.id);
     }
 }
