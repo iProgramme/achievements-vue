@@ -27,60 +27,60 @@
         </el-form>
         <div class="main-space"></div>
         <!-- 表格 -->
-    <el-table
-    :data="tableData"
-    stripe border
-    style="width: 100%">
-        <el-table-column
-        prop="orderNumber"
-        label="序号">
-        </el-table-column>
-        <el-table-column
-        prop="methodName"
-        label="绩效方案名称">
-        </el-table-column>
-        <el-table-column
-        prop="people"
-        label="创建人">
-        </el-table-column>
-        <el-table-column
-        prop="startTime"
-        label="创建时间">
-        </el-table-column>
-        <el-table-column
-        prop="status"
-        label="审核状态">
-        </el-table-column>
-        <el-table-column
-        prop="status2"
-        label="使用状态">
-        </el-table-column>
-        
-        <el-table-column label="操作">
-            <template slot-scope="scope">
-                <el-button type="text" @click="routerToDetail(scope.row)">查看详情</el-button>
-                <el-button type="text">删除</el-button>
-                <el-button type="text">分发</el-button>
-            </template>
+        <el-table
+        :data="tableData"
+        stripe border
+        style="width: 100%">
+            <el-table-column
+            prop="orderNumber"
+            label="序号">
+            </el-table-column>
+            <el-table-column
+            prop="methodName"
+            label="绩效方案名称">
+            </el-table-column>
+            <el-table-column
+            prop="people"
+            label="创建人">
+            </el-table-column>
+            <el-table-column
+            prop="startTime"
+            label="创建时间">
+            </el-table-column>
+            <el-table-column
+            prop="status"
+            label="审核状态">
+            </el-table-column>
+            <el-table-column
+            prop="status2"
+            label="使用状态">
+            </el-table-column>
             
-        </el-table-column>
-    </el-table>
-    <div class="main-space"></div>    
-    <!-- 分页 -->
-    <el-pagination
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
-      :current-page="currentPage4"
-      :page-sizes="[100, 200, 300, 400]"
-      :page-size="100"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="1400">
-    </el-pagination>
+            <el-table-column label="操作">
+                <template slot-scope="scope">
+                    <el-button type="text" @click="routerToDetail(scope.row)">查看详情</el-button>
+                    <el-button type="text">删除</el-button>
+                    <el-button type="text">分发</el-button>
+                </template>
+                
+            </el-table-column>
+        </el-table>
+        <div class="main-space"></div>    
+        <!-- 分页 -->
+        <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage4"
+        :page-sizes="[100, 200, 300, 400]"
+        :page-size="100"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="1400">
+        </el-pagination>
     </div>
 </template>
 
 <script>
-import filialeJudgeManage from "./filialeJudgeManage";
+import filialeJudgeManage from "./filialeJudgeManage.js";
 export default {
   ...filialeJudgeManage
 }
