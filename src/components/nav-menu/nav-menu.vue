@@ -9,27 +9,16 @@
         background-color="#545c64"
         text-color="#fff"
         active-text-color="#ffd04b">
-        <el-submenu index="1">
+        <el-submenu v-for="item in routerNavslist" :key="item.url" :index="item.name">
             <template slot="title">
             <i class="el-icon-location"></i>
-            <span slot="title">导航一</span>
+            <span slot="title">{{item.name}}</span>
             </template>
             <el-menu-item-group>
-                <el-menu-item index="1-1" @click="add({name:'页面1',url:'/page1'})">
+                <el-menu-item :index="list.url" v-for="list in item.children" :key="list.url" @click="add(list)">
                     <i class="el-icon-location"></i>
-                    <span>Go to页面1</span>
+                    <span>{{list.title}}</span>
                 </el-menu-item>
-                <el-menu-item index="1-2" @click="add({name:'页面2',url:'/page4'})">
-                    <i class="el-icon-location"></i>
-                    <span>Go to页面2</span>
-                </el-menu-item>
-                <el-menu-item :index="item.url" v-for="item in routerNavslist" :key="item.url" @click="add(item)">
-                    <i class="el-icon-location"></i>
-                    <span>{{item.title}}</span>
-                </el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group>
-            <el-menu-item index="1-4">选项1</el-menu-item>
             </el-menu-item-group>
         </el-submenu>
         </el-menu>

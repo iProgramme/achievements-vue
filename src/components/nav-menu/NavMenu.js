@@ -26,14 +26,32 @@ export default {
             
             setTimeout(()=>{
                 this.routerNavslist = [
-                    {name:'/dashboard',url:'/dashboard',title:'首页'},
-                    {name:'/filialeTask',url:'/filialeTask',title:'分公司任务管理'},
-                    // {name:'/filialeTaskDetail',url:'/filialeTaskDetail',title:'分公司任务管理',flag:true},
-                    {name:'/page1',url:'/page1',title:'页面1'},
-                    {name:'/page3',url:'/page3',title:'页面3'},
-                    {name:'/page4',url:'/page4',title:'页面4'}
+                    {
+                        name:'一级菜单1',
+                        children:[
+                            {name:'/dashboard',url:'/dashboard',title:'首页'},
+                            {name:'/filialeTask',url:'/filialeTask',title:'分公司任务管理'},
+                            {name:'/page1',url:'/page1',title:'页面1'},
+                            {name:'/page3',url:'/page3',title:'页面3'},
+                        ]
+                    },
+                    {
+                        name:'一级菜单2',
+                        children:[
+                            {name:'/page4',url:'/page4',title:'页面4'},
+                            {name:'/filialeJudgeManage',url:'/filialeJudgeManage',title:'分公司考核方案管理'}
+                        ]
+                    },
+                    
+                    
                 ]
-                let activePage = this.routerNavslist.find(item=>item.url == url)
+                let activePage = {}
+                this.routerNavslist.find((item)=>{
+                    activePage = item.children.find(list=>list.url == url)
+                    if(activePage){
+                        return true
+                    }
+                })
                 setTimeout(() => {
                     this.defaultActiveNow = activePage.url 
                 }, 0);

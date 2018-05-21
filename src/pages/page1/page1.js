@@ -1,4 +1,3 @@
-import page1 from './page1.vue'
 export default {
     name: 'page1',
     data() {
@@ -71,9 +70,6 @@ export default {
             }
         }
         
-    },
-    components:{
-        page1:page1
     },
     methods: {
         add:function(){
