@@ -22,8 +22,8 @@ import judgeMethod from '../pages/judgeMethod/judgeMethod.vue'
 import judgeDimension from '../pages/judgeDimension/judgeDimension.vue'
 import judgeDetail from '../pages/judgeDetail/judgeDetail.vue'
 import filialeJudgeManage from '../pages/filialeJudgeManage/filialeJudgeManage.vue'
-import filialeJudgeAdd from '../pages/filialeJudgeAdd/filialeJudgeAdd.vue'
-import filialeJudgeDetail from '../pages/filialeJudgeDetail/filialeJudgeDetail.vue'
+import filialeJudgeManageAdd from '../pages/filialeJudgeManageAdd/filialeJudgeManageAdd.vue'
+import filialeJudgeManageDetail from '../pages/filialeJudgeManageDetail/filialeJudgeManageDetail.vue'
 import personJudgeManage from '../pages/personJudgeManage/personJudgeManage.vue'
 import personJudgeAdd from '../pages/personJudgeAdd/personJudgeAdd.vue'
 import personJudgeDetail from '../pages/personJudgeDetail/personJudgeDetail.vue'
@@ -177,15 +177,15 @@ export default new Router({
         },
         {
             // 分公司考核方案 新增
-            path: '/filialeJudgeAdd',
-            name: 'filialeJudgeAdd',
-            component: filialeJudgeAdd
+            path: '/filialeJudgeManageAdd',
+            name: 'filialeJudgeManageAdd',
+            component: filialeJudgeManageAdd
         },
         {
             // 分公司考核方案 详情
-            path: '/filialeJudgeDetail',
-            name: 'filialeJudgeDetail',
-            component: filialeJudgeDetail
+            path: '/filialeJudgeManageDetail',
+            name: 'filialeJudgeManageDetail',
+            component: filialeJudgeManageDetail
         },
         {
             // 个人考核方案 管理
