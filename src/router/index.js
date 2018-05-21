@@ -28,7 +28,7 @@ import personJudgeManage from '../pages/personJudgeManage/personJudgeManage.vue'
 import personJudgeAdd from '../pages/personJudgeAdd/personJudgeAdd.vue'
 import personJudgeDetail from '../pages/personJudgeDetail/personJudgeDetail.vue'
 import filialeVerifyManage from '../pages/filialeVerifyManage/filialeVerifyManage.vue'
-import filialeToVerifyDetail from '../pages/filialeToVerifyDetail/filialeToVerifyDetail.vue'
+import filialeVerifyManageDetail from '../pages/filialeVerifyManageDetail/filialeVerifyManageDetail.vue'
 import filialeVerified from '../pages/filialeVerified/filialeVerified.vue'
 import filialeVerifiedDetail from '../pages/filialeVerifiedDetail/filialeVerifiedDetail.vue'
 import personVerifyManage from '../pages/personVerifyManage/personVerifyManage.vue'
@@ -213,22 +213,22 @@ export default new Router({
         },
         {
             // 分公司考核方案待审核详情
-            path: '/filialeToVerifyDetail',
-            name: 'filialeToVerifyDetail',
-            component: filialeToVerifyDetail
+            path: '/filialeVerifyManageDetail',
+            name: 'filialeVerifyManageDetail',
+            component: filialeVerifyManageDetail
         },
-        {
-            // 分公司考核方案已审核
-            path: '/filialeVerified',
-            name: 'filialeVerified',
-            component: filialeVerified
-        },
-        {
-            // 分公司考核方案已审核详情
-            path: '/filialeVerifiedDetail',
-            name: 'filialeVerifiedDetail',
-            component: filialeVerifiedDetail
-        },
+        // {
+        //     // 分公司考核方案已审核
+        //     path: '/filialeVerified',
+        //     name: 'filialeVerified',
+        //     component: filialeVerified
+        // },
+        // {
+        //     // 分公司考核方案已审核详情
+        //     path: '/filialeVerifiedDetail',
+        //     name: 'filialeVerifiedDetail',
+        //     component: filialeVerifiedDetail
+        // },
         {
             // 个人考核方案审核管理
             path: '/personVerifyManage',
@@ -241,18 +241,18 @@ export default new Router({
             name: 'personToVerifyDetail',
             component: personToVerifyDetail
         },
-        {
-            // 个人考核方案已审核
-            path: '/personVerified',
-            name: 'personVerified',
-            component: personVerified
-        },
-        {
-            // 个人考核方案已审核详情
-            path: '/personVerifiedDetail',
-            name: 'personVerifiedDetail',
-            component: personVerifiedDetail
-        },
+        // {
+        //     // 个人考核方案已审核
+        //     path: '/personVerified',
+        //     name: 'personVerified',
+        //     component: personVerified
+        // },
+        // {
+        //     // 个人考核方案已审核详情
+        //     path: '/personVerifiedDetail',
+        //     name: 'personVerifiedDetail',
+        //     component: personVerifiedDetail
+        // },
         {
             path: 'page1',
             name: 'page1',

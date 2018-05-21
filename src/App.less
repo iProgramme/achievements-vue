@@ -22,6 +22,7 @@ html,body,div,ul,li,ol{
 .clear:before, .clear:after {content: ""; display: table;}
 .clear:after {clear: both;}
 .clear{*zoom: 1;overflow: hidden;}
+.child-float li{float: left;padding-right: 30px;}
 .disN{display: none!important;}
 .over-hidden{overflow: hidden;}
 .border-right{border-right: solid 1px #e6e6e6}
@@ -32,7 +33,19 @@ a{text-decoration: none;color:#000}
 .text-center{
     text-align: center;
 }
+@borderColor:#d8dce5;
+@buttonColor:#b09573;
+@buttonFocusColor:#a2835c;
 
+// 按钮样式
+button.el-button--primary{
+    border-color:@buttonColor;
+    background:@buttonColor;
+    &:focus,&:hover{
+        background:@buttonFocusColor;
+        border-color:@buttonFocusColor;
+    }
+}
 // 首个tab不可关闭
 .el-tabs__nav > div:first-child > span{
     display: none;
@@ -57,7 +70,7 @@ form.el-form{
         text-align: right;
     }
     .el-form-item.is-success .el-input__inner{
-        border-color:#d8dce5;
+        border-color:@borderColor;
     }
 }
 // 通用表格样式
@@ -87,4 +100,21 @@ table[class^='el-table']{
 // 通用返回样式
 .back-page{
     padding:40px
+}
+// 通用表格下的表单
+.follow-table{
+    border:1px solid #bebebe;
+    border-top: 0;
+    padding:10px 20px;
+    form.el-form{
+        .el-form-item{
+            width: 100%
+        }
+        .el-form-item.is-success{
+            .el-input__inner,.el-textarea__inner{
+                border-color:@borderColor;
+            }
+        } 
+    }
+
 }

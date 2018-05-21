@@ -1,5 +1,8 @@
 <template>
-  <div>3456789</div>
+    <div>
+        <el-button type="primary" @click="go">去详情</el-button>
+        
+    </div>
 </template>
 
 <script>
@@ -8,6 +11,11 @@ export default {
     
     data:function(){
         return {
+        }
+    },
+    methods:{
+        go(){
+            this.$router.push({path:'/filialeVerifyManageDetail'})
         }
     }
 };

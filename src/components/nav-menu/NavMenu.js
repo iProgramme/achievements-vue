@@ -36,7 +36,7 @@ export default {
                         ]
                     },
                     {
-                        name:'一级菜单2',
+                        name:'考核方案配置',
                         children:[
                             {name:'/page4',url:'/page4',title:'页面4'},
                             {name:'/indexDefinition',url:'/indexDefinition',title:'指标定义维护'},
@@ -45,6 +45,13 @@ export default {
                             {name:'/judgeDimension',url:'/judgeDimension',title:'考核维度维护'},
                             {name:'/judgeDetail',url:'/judgeDetail',title:'考核细项维护'},
                             {name:'/filialeJudgeManage',url:'/filialeJudgeManage',title:'分公司考核方案管理'}
+                        ]
+                    },
+                    {
+                        name:'考核方案审核',
+                        children:[
+                            {name:'/filialeVerifyManage',url:'/filialeVerifyManage',title:'分公司考核方案管理'},
+                            // {name:'/filialeVerifyManageDetail',url:'/filialeVerifyManageDetail',title:'分公司考核方案-审核'},
                         ]
                     },
                     
