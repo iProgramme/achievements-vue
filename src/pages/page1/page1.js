@@ -62,6 +62,13 @@ export default {
                 zip: 200333,
                 span:1
               }],
+            //   弹窗
+            dialogVisible:false,
+            ruleForm2: {
+                pass: '',
+                checkPass: '',
+                age: ''
+            }
         }
         
     },
@@ -94,18 +101,22 @@ export default {
               	}
             }
         },
-        addRow(index,row){
-            console.log(row.date);
-            let spanNumber = -1;
-            spanNumber = this.tableData3.find((value)=>{
-                if(value.date == row.date && value.span!=0){
-                    return true
-                }else{
-                    return false
-                }
-            })
-            spanNumber.span++
-            this.tableData3.splice(index+1,0,{date: row.date,name: '王小虎'+Math.random()*100,province: '上海',city: '普陀区',address: '上海市普陀区金沙江路 1518 弄',zip: 200333,span:0})
+        // 行内添加行
+        // addRow(index,row){
+        //     console.log(row.date);
+        //     let spanNumber = -1;
+        //     spanNumber = this.tableData3.find((value)=>{
+        //         if(value.date == row.date && value.span!=0){
+        //             return true
+        //         }else{
+        //             return false
+        //         }
+        //     })
+        //     spanNumber.span++
+        //     this.tableData3.splice(index+1,0,{date: row.date,name: '王小虎'+Math.random()*100,province: '上海',city: '普陀区',address: '上海市普陀区金沙江路 1518 弄',zip: 200333,span:0})
+        // },
+        addProject(){
+            this.dialogVisible = true
         },
         deleteRow(index,row){
             if(this.tableData3[index].span!=0 && this.tableData3[index+1] && this.tableData3[index+1].span == 0){
@@ -122,7 +133,45 @@ export default {
                 spanNumber.span--
             }
             this.tableData3.splice(index,1)
+        },
+        // 弹窗表单
+        submitForm(formName) {
+            let item = this.tableData3.find(item=>item.date == '2016-05-03')
+            if(item){
+                item.span++;
+                let index = this.tableData3.findIndex(item=>item.date == '2016-05-03')
+                this.tableData3.splice(index+1,0,{
+                    date: '2016-05-03',
+                    name: '王小虎7',
+                    province: '上海',
+                    city: '普陀区',
+                    address: '上海市普陀区金沙江路 1518 弄',
+                    zip: 200333,
+                    span:0
+                })
+            }else{
+                this.tableData3.push({
+                    date: '2016-05-09',
+                    name: '王小虎7',
+                    province: '上海',
+                    city: '普陀区',
+                    address: '上海市普陀区金沙江路 1518 弄',
+                    zip: 200333,
+                    span:1
+                })
+            }
+            
+            
+            console.log(this.tableData3);
+        },
+        resetForm(formName) {
+            this.$refs[formName].resetFields();
         }
         
+    },
+    computed:{
+        tableData4(){
+            return this.tableData3
+        }
     }
 }
