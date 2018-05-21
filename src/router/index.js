@@ -158,13 +158,13 @@ export default new Router({
             component: judgeMethod
         },
         {
-            // 指标维度维护
+            // 考核维度维护
             path: '/judgeDimension',
             name: 'judgeDimension',
             component: judgeDimension
         },
         {
-            // 指标细项维护
+            // 考核细项维护
             path: '/judgeDetail',
             name: 'judgeDetail',
             component: judgeDetail
