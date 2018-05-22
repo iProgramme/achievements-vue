@@ -17,24 +17,10 @@
         stripe border
         style="width: 100%">
             <el-table-column
-            prop="name1"
-            label="考核维度">
-            </el-table-column>
-            <el-table-column
-            prop="name2"
-            label="细项指标">
-            </el-table-column>
-            <el-table-column
-            prop="name3"
-            label="基础分值">
-            </el-table-column>
-            <el-table-column
-            prop="status"
-            label="指标公式">
-            </el-table-column>
-            <el-table-column
-            prop="name4"
-            label="考核办法">
+            v-for="item of dataapp"
+            :key="item.model"
+            :prop="item.model"
+            :label="item.name">
             </el-table-column>
         </el-table>
         <!-- 审批 -->

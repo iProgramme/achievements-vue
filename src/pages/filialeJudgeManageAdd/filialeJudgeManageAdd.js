@@ -174,6 +174,8 @@ export default {
         // this.tableDetail = {}
         // this.dialogVisible = false;
         // this.tableObject = {}
+        this.$store.commit('toTree',this.tableData3)
+        this.$store.commit('toArray',this.$store.state.tree)
         console.log(`切换到所在路由的时候，触发${this.count++}次`);
     }
 }
