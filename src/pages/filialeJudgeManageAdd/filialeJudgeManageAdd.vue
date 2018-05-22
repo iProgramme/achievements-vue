@@ -62,7 +62,7 @@
         <el-dialog
             title="新增考核指标"
             :visible.sync="dialogVisible"
-            width="30%" class="performance-dialog">
+            width="35%" class="performance-dialog">
             <el-form :model="tableObject" status-icon ref="tableObject" label-width="100px" class="demo-ruleForm">
                 <el-form-item label="考核维度" prop="name1">
                     <el-input v-model="tableObject.name1" placeholder="请输入考核维度"></el-input>

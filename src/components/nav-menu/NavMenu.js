@@ -44,7 +44,8 @@ export default {
                             {name:'/judgeMethod',url:'/judgeMethod',title:'考核办法维护'},
                             {name:'/judgeDimension',url:'/judgeDimension',title:'考核维度维护'},
                             {name:'/judgeDetail',url:'/judgeDetail',title:'考核细项维护'},
-                            {name:'/filialeJudgeManage',url:'/filialeJudgeManage',title:'分公司考核方案管理'}
+                            {name:'/filialeJudgeManage',url:'/filialeJudgeManage',title:'分公司考核方案管理'},
+                            {name:'/judgeManageFiliale',url:'/judgeManageFiliale',title:'分公司考核管理'}
                         ]
                     },
                     {
