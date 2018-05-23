@@ -99,7 +99,7 @@ export default new Router({
         },
         {
             // 考核详情-分公司
-            path: '/judgeDetailFiliale',
+            path: '/judgeDetailFilialeDetail',
             name: 'judgeDetailFiliale',
             component: judgeDetailFiliale
         },
@@ -135,7 +135,7 @@ export default new Router({
         },
         {
             // 考核-个人
-            path: '/judgePerson',
+            path: '/judgeManageFilialeJudge',
             name: 'judgePerson',
             component: judgePerson
         },

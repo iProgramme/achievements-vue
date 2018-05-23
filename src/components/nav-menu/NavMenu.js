@@ -21,7 +21,7 @@ export default {
             this.$store.commit('setRouterName',routerName)            
         },
         getData(){
-            let url = this.$route.path.replace('Detail','').replace('Add','')
+            let url = this.$route.path.replace('Detail','').replace('Add','').replace('Judge','')
             console.log(url);
             
             setTimeout(()=>{
