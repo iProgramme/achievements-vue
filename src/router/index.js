@@ -62,13 +62,13 @@ export default new Router({
             component: dashboard
         },
         {
-            // 分公司任务分发管理
+            // 分公司任务管理
             path: '/filialeTask',
             name: ' filialeTask',
             component: filialeTask
         },
         {
-            // 分公司任务分发管理-详情
+            // 分公司任务管理-详情
             path: '/filialeTaskDetail',
             name: 'filialeTaskDetail',
             component:  filialeTaskDetail

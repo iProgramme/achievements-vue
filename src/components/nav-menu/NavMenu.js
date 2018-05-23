@@ -36,6 +36,13 @@ export default {
                         ]
                     },
                     {
+                        name:'考核任务管理',
+                        children:[
+                            
+                            {name:'/filialeTask',url:'/filialeTask',title:'分公司任务管理'}
+                        ]
+                    },
+                    {
                         name:'考核方案配置',
                         children:[
                             {name:'/page4',url:'/page4',title:'页面4'},
