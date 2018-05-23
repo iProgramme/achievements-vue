@@ -10,7 +10,6 @@ export default {
                 name3: '上海',
                 name4: '普陀区',
                 name5: '上海市普陀区金沙江路 1518 弄',
-                span:2
               },
               {
                 name1: '2016-05-03',
@@ -18,7 +17,6 @@ export default {
                 name3: '上海',
                 name4: '普陀区',
                 name5: '上海市普陀区金沙江路 1518 弄',
-                span:0
               },
               {
                 name1: '2016-05-04',
@@ -26,7 +24,6 @@ export default {
                 name3: '上海',
                 name4: '普陀区',
                 name5: '上海市普陀区金沙江路 1518 弄',
-                span:2
               },
               {
                 name1: '2016-05-04',
@@ -34,7 +31,6 @@ export default {
                 name3: '上海',
                 name4: '普陀区',
                 name5: '上海市普陀区金沙江路 1518 弄',
-                span:0
               },
               {
                 name1: '2016-05-05',
@@ -42,7 +38,6 @@ export default {
                 name3: '上海',
                 name4: '普陀区',
                 name5: '上海市普陀区金沙江路 1518 弄',
-                span:1
               },
               {
                 name1: '2016-05-06',
@@ -50,7 +45,6 @@ export default {
                 name3: '上海',
                 name4: '普陀区',
                 name5: '上海市普陀区金沙江路 1518 弄',
-                span:1
               }],
             //   弹窗
             dialogVisible:false,
@@ -174,8 +168,8 @@ export default {
         // this.tableDetail = {}
         // this.dialogVisible = false;
         // this.tableObject = {}
-        this.$store.commit('toTree',this.tableData3)
-        this.$store.commit('toArray',this.$store.state.tree)
+        // this.$store.commit('toTree',this.tableData3)
+        this.$store.commit('changeToArray',this.tableData3)
         console.log(`切换到所在路由的时候，触发${this.count++}次`);
     }
 }

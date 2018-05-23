@@ -27,7 +27,7 @@
             prop="name2"
             label="细项指标">
                 <template slot-scope="scope">
-                    <el-input v-model="scope.row.name1" placeholder="请输入内容"></el-input>
+                    <el-input v-model="scope.row.name2" placeholder="请输入内容"></el-input>
                 </template>
             </el-table-column>
             <el-table-column
