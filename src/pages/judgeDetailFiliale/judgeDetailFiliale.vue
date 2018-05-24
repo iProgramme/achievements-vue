@@ -1,10 +1,10 @@
 <template>
     <div>
         <el-form :inline="true" :model="tableSearch" ref="tableSearch" class="demo-form-inline">
-            <el-form-item label="分公司名称" prop="methodName">
+            <el-form-item label="分公司名称：" prop="methodName">
                 <el-input v-model="tableSearch.methodName" placeholder="请输入分公司名称"></el-input>
             </el-form-item>
-            <el-form-item label="考核进度" prop="judgeStatus">
+            <el-form-item label="考核进度：" prop="judgeStatus">
                 <el-select v-model="tableSearch.judgeStatus" placeholder="--请选择--">
                     <el-option label="考核中" value="1"></el-option>
                     <el-option label="已完成" value="2"></el-option>
@@ -27,10 +27,10 @@
             <el-table-column label="操作">
                 <template slot-scope="scope">
                     <el-button type="text">
-                        <router-link :to="{path:'/judgeManageFilialeJudge',query:{id:scope.row.beginTime}}">查看详情</router-link>
+                        <router-link :to="{path:'/judgeManageFilialeCheck',query:{id:scope.row.beginTime}}">查看详情</router-link>
                     </el-button>
                     <el-button type="text">
-                        <router-link :to="{path:'/judgeManageFilialeJudge',query:{id:scope.row.beginTime}}">考核</router-link>
+                        <router-link :to="{path:'/judgeManageFilialeCheck',query:{id:scope.row.beginTime}}">考核</router-link>
                     </el-button>
                     <el-button type="text">退回</el-button>
                 </template>

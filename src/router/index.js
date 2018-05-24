@@ -135,7 +135,7 @@ export default new Router({
         },
         {
             // 考核-个人
-            path: '/judgeManageFilialeJudge',
+            path: '/judgeManageFilialeCheck',
             name: 'judgePerson',
             component: judgePerson
         },

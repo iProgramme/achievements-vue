@@ -2,24 +2,24 @@
 <div>
     <!-- 搜索 -->
     <el-form :inline="true" :model="formInline" ref="formInline" class="demo-form-inline">
-        <el-form-item label="任务名称" prop="user">
+        <el-form-item label="任务名称：" prop="user">
             <el-input v-model="formInline.user" placeholder="请输入任务名称"></el-input>
         </el-form-item>
-        <el-form-item label="创建时间" prop="creationTime">
+        <el-form-item label="创建时间：" prop="creationTime">
             <el-date-picker 
             v-model="formInline.creationTime"
             type="date"
             placeholder="请选择创建时间">
             </el-date-picker>
         </el-form-item>
-        <el-form-item label="任务分发状态" prop="region">
+        <el-form-item label="任务分发状态：" prop="region">
             <el-select v-model="formInline.region" placeholder="任务分发状态">
             <el-option label="已分发" value="shanghai"></el-option>
             <el-option label="未分发" value="beijing"></el-option>
             </el-select>
         </el-form-item>
         <el-form-item>
-            <el-button @click="resetForm('formInline')">重置</el-button>
+            <el-button @click="resetForm('formInline')">清除查询条件</el-button>
             <el-button type="primary" @click="submitForm('formInline')">查询</el-button>
         </el-form-item>
         <el-form-item class="open-dialog">
@@ -32,34 +32,18 @@
     :data="tableData"
     stripe border
     style="width: 100%">
-        <el-table-column
-        prop="orderNumber"
-        label="序号">
+        <el-table-column prop="orderNumber" label="序号"></el-table-column>
+        <el-table-column prop="taskName" label="任务名称"></el-table-column>
+        <el-table-column label="考核起止时间">
+            <template slot-scope="scope">
+                {{scope.row.beginTime}}
+                    -
+                    {{scope.row.endTime}}
+            </template>
         </el-table-column>
-        <el-table-column
-        prop="taskName"
-        label="任务名称">
-        </el-table-column>
-        <el-table-column
-        label="考核起止时间">
-        <template slot-scope="scope">
-            {{scope.row.beginTime}}
-                -
-                {{scope.row.endTime}}
-        </template>
-        </el-table-column>
-        <el-table-column
-        prop="people"
-        label="任务分发人">
-        </el-table-column>
-        <el-table-column
-        prop="status"
-        label="任务分发状态">
-        </el-table-column>
-        <el-table-column
-        prop="startTime"
-        label="创建时间">
-        </el-table-column>
+        <el-table-column prop="people" label="任务分发人"></el-table-column>
+        <el-table-column prop="status" label="任务分发状态"></el-table-column>
+        <el-table-column prop="startTime" label="创建时间"></el-table-column>
         <el-table-column label="操作">
             <template slot-scope="scope">
                 <el-button type="text">
@@ -77,8 +61,7 @@
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page="currentPage4"
-      :page-sizes="[100, 200, 300, 400]"
-      :page-size="100"
+      :page-sizes="[10, 20, 50]"
       layout="total, sizes, prev, pager, next, jumper"
       :total="1400">
     </el-pagination>

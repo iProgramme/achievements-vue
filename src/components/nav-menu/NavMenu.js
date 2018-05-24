@@ -21,7 +21,7 @@ export default {
             this.$store.commit('setRouterName',routerName)            
         },
         getData(){
-            let url = this.$route.path.replace('Detail','').replace('Add','').replace('Judge','')
+            let url = this.$route.path.replace('Detail','').replace('Add','').replace('Check','')
             console.log(url);
             
             setTimeout(()=>{
@@ -30,7 +30,6 @@ export default {
                         name:'一级菜单1',
                         children:[
                             {name:'/dashboard',url:'/dashboard',title:'首页'},
-                            {name:'/filialeTask',url:'/filialeTask',title:'分公司任务管理'},
                             {name:'/page1',url:'/page1',title:'页面1'},
                             {name:'/page3',url:'/page3',title:'页面3'},
                         ]
@@ -38,8 +37,15 @@ export default {
                     {
                         name:'考核任务管理',
                         children:[
-                            
-                            {name:'/filialeTask',url:'/filialeTask',title:'分公司任务管理'}
+                            {name:'/filialeTask',url:'/filialeTask',title:'分公司任务管理'},
+                            {name:'/personTask',url:'/personTask',title:'客户经理任务管理'},
+                        ]
+                    },
+                    {
+                        name:'考核管理',
+                        children:[
+                            {name:'/judgeManageFiliale',url:'/judgeManageFiliale',title:'考核管理-分公司'},
+                            {name:'/judgeManagePerson',url:'/judgeManagePerson',title:'考核管理-个人'}
                         ]
                     },
                     {
@@ -52,7 +58,6 @@ export default {
                             {name:'/judgeDimension',url:'/judgeDimension',title:'考核维度维护'},
                             {name:'/judgeDetail',url:'/judgeDetail',title:'考核细项维护'},
                             {name:'/filialeJudgeManage',url:'/filialeJudgeManage',title:'分公司考核方案管理'},
-                            {name:'/judgeManageFiliale',url:'/judgeManageFiliale',title:'分公司考核管理'}
                         ]
                     },
                     {

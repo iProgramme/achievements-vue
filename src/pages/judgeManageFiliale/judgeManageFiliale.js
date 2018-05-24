@@ -1,3 +1,4 @@
+import examiner from '@/components/examiner/examiner.vue';
 export default {
     name: "pages",
     data:function(){
@@ -21,9 +22,9 @@ export default {
             currentPage4:1,
         }
     },
-    // components: {
-    //     examiner
-    // },
+    components: {
+        examiner
+    },
     methods:{
         resetForm() {
             this.tableSearch.methodName = '';

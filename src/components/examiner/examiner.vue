@@ -27,7 +27,7 @@
                     </el-upload>
                 </el-form-item>
                 <el-form-item label="考评人：" prop="name6">
-                    <div class="item-examiner" v-for="(item,index) in examinerList" :key="item.name">
+                    <div class="item-examiner" v-for="(item,index) in examinerList" :key="item.id">
                         <div class="examiner">
                             <span class="el-icon-error" @click="deleteExaminer(index)"></span>
                             <div class="examiner-name">{{item.name.substr(0,2)}}</div>
@@ -44,7 +44,7 @@
             </el-form>
             <el-dialog title="任务提交" width="40%" :visible.sync="innerVisible" class="performance-dialog" append-to-body>
                 <div>请选择流转人员 后续流程环节：业务录入</div>
-                <el-table :data="gridData" stripe border style="width: 100%" highlight-current-row>
+                <el-table :data="gridData" stripe border style="width: 100%" highlight-current-row @current-change="handleCurrentChange">
                     <el-table-column type="index"></el-table-column>
                     <el-table-column prop="name2" label="部门"></el-table-column>
                     <el-table-column prop="name3" label="姓名"></el-table-column>

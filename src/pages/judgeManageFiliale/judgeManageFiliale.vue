@@ -1,13 +1,13 @@
 <template>
     <div class="filiale-judge-manage">
         <el-form :inline="true" :model="tableSearch" ref="tableSearch" class="demo-form-inline">
-            <el-form-item label="指标名称" prop="methodName">
+            <el-form-item label="指标名称：" prop="methodName">
                 <el-input v-model="tableSearch.methodName" placeholder="请输入指标名称"></el-input>
             </el-form-item>
-            <el-form-item label="发起人" prop="methodPersion">
+            <el-form-item label="发起人：" prop="methodPersion">
                 <el-input v-model="tableSearch.methodPersion" placeholder="请输入发起人"></el-input>
             </el-form-item>
-            <el-form-item label="考核状态" prop="judgeStatus">
+            <el-form-item label="考核状态：" prop="judgeStatus">
                 <el-select v-model="tableSearch.judgeStatus" placeholder="--请选择--">
                     <el-option label="考核状态1" value="1"></el-option>
                     <el-option label="考核状态2" value="2"></el-option>
@@ -51,88 +51,8 @@
 </template>
 
 <script>
-import examiner from '@/components/examiner/examiner.vue';
 import judgeManageFiliale from "./judgeManageFiliale";
-export default {
-    name: "pages",
-    data:function(){
-        return {
-            // 搜索参数
-            tableSearch:{
-                // methodName:'1',
-                // methodPersion:'2',
-                // judgeStatus:'3',
-            },
-            // 表格数据
-            tableData:[
-                {index:'111',filiale:'222',yearIndicators:'333',month:'444'},
-                {index:'111',filiale:'222',yearIndicators:'333',month:'444'},
-                {index:'111',filiale:'222',yearIndicators:'333',month:'444'},
-                {index:'111',filiale:'222',yearIndicators:'333',month:'444'},
-            ],
-            // 弹窗
-            outerVisible:{flag:false},
-            // 翻页
-            currentPage4:1,
-        }
-    },
-    components: {
-        examiner
-    },
-    methods:{
-        resetForm() {
-            this.tableSearch.methodName = '';
-            this.tableSearch.methodPersion = '';
-            this.tableSearch.judgeStatus = '';
-        },
-        submitForm() {
-
-        },
-        // 翻页
-        handleSizeChange(){
-            console.log(1);
-        },
-        handleCurrentChange(){
-            console.log(2);
-        },
-        // 归档弹框
-        open4() {
-            const h = this.$createElement;
-            this.$msgbox({
-                title: '归档',
-                message: h('p', null, [
-                    h('span', null, '是否确认归档？'),
-                ]),
-                showCancelButton: true,
-                confirmButtonText: '确定',
-                cancelButtonText: '取消',
-                beforeClose: (action, instance, done) => {
-                    if (action === 'confirm') {
-                    instance.confirmButtonLoading = true;
-                    instance.confirmButtonText = '执行中...';
-                    setTimeout(() => {
-                        done();
-                        setTimeout(() => {
-                        instance.confirmButtonLoading = false;
-                        }, 300);
-                    }, 3000);
-                    } else {
-                    done();
-                    }
-                }
-                }).then(action => {
-                this.$message({
-                    type: 'info',
-                    message: 'action: ' + action
-                });
-            });
-        }
-
-    },
-    updated() {
-        console.log(this.outerVisible)
-    }
-};
+export default judgeManageFiliale
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
