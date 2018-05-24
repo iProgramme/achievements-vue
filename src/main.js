@@ -20,7 +20,8 @@ Vue.use(ElementUI,{ size: 'small' })
 Vue.use(Vuex)
 
 console.log('Vue.version:'+Vue.version);
-
+// 需对http进行一些处理
+Vue.prototype.$http = http
 new Vue({
     el: '#app',
     router,
@@ -31,6 +32,5 @@ new Vue({
     template: '<App/>',
     render: h => h(App)
 })
-// 需对http进行一些处理
-Vue.prototype.$http = http
+
 

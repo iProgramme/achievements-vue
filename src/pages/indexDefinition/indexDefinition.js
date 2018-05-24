@@ -3,34 +3,122 @@ export default {
         return {
             // 搜索参数
             tableSearch:{
-
+                indicator_name:'',
+                indicator_define:'',
+                count_method:''
             },
+            // 统计方式
+            countMethod:[
+                {id:'1',count_method_name:'统计方式1'},
+                {id:'2',count_method_name:'统计方式2'},
+                {id:'3',count_method_name:'统计方式3'},
+                {id:'4',count_method_name:'统计方式4'},
+                {id:'5',count_method_name:'统计方式5'},
+            ],
             // 表格数据
             tableData:[
-                {name1:'111',name2:'222',name3:'333',status:1},
-                {name1:'222',name2:'222',name3:'333',status:1},
-                {name1:'333',name2:'222',name3:'333',status:1},
-                {name1:'444',name2:'222',name3:'333',status:1},
-                {name1:'555',name2:'222',name3:'333',status:1},
-                {name1:'666',name2:'222',name3:'333',status:1},
-                {name1:'777',name2:'222',name3:'333',status:1},
+                {Indicator_name:'111',Indicator_define:'222',Indicator_count_method:'333',statue:1},
+                {Indicator_name:'111',Indicator_define:'222',Indicator_count_method:'333',statue:1},
+                {Indicator_name:'111',Indicator_define:'222',Indicator_count_method:'333',statue:0},
+                {Indicator_name:'111',Indicator_define:'222',Indicator_count_method:'333',statue:1},
+                {Indicator_name:'111',Indicator_define:'222',Indicator_count_method:'333',statue:1},
+                {Indicator_name:'111',Indicator_define:'222',Indicator_count_method:'333',statue:0},
+                {Indicator_name:'111',Indicator_define:'222',Indicator_count_method:'333',statue:1},
+                {Indicator_name:'111',Indicator_define:'222',Indicator_count_method:'333',statue:1},
+            ],
+            tableThead:[
+                {name:'指标名称',value:'Indicator_name'},
+                {name:'指标定义',value:'Indicator_define'},
+                {name:'统计方式',value:'Indicator_count_method'},
+                {name:'启用状态',value:'statue'},
             ],
             // 弹窗
-            tableObject:{},
+            tableObject:{
+                indicator_name:'',
+                indicator_define:'',
+                count_method:''
+            },
             dialogVisible:false,
+            // 弹窗 - 必填项校验
+            rules:{
+                indicator_name:[{required:true,message:'请输入指标名称',trigger:'blur'}],
+                indicator_define:[{required:true,message:'请输入定义',trigger:'blur'}],
+                count_method:[{required:true,message:'请选择统计方式',trigger:'blur'}],
+            },
             // 翻页
-            currentPage4:1,
+            currentPage:1,
+            total:1000
 
             
         };
     },
     methods: {
-        // 翻页
-        handleSizeChange(){
-            console.log(1);
+        // 请求表格
+        getData(currentPage){
+            let defaultParams = {
+                start_index:currentPage || 1,
+                total:this.total
+            }
+            console.log(defaultParams);
+            let params = Object.assign(defaultParams,this.tableSearch)
+            this.$http.get('/api/indicatorsapi/getindicators',{params:params}).then((result) => {
+                console.log(result);
+                this.arr = result
+            }).catch((err)=>{
+               
+            })
         },
-        handleCurrentChange(){
-            console.log(2);
+        // 请求指标统计方式
+        getCountMethod(){
+            this.$http.post('/api/indicatorsapi/getallcountmethod',{params:params}).then((result) => {
+                console.log(result);
+                // this.arr = result
+            }).catch((err)=>{
+               
+            })
+        },
+        // 启用/停用
+        changeStatue(item){
+            let params = {
+                id:item.id,
+                statue:!item.statue
+            }
+            this.$http.post('/api/indicatorsapi/changeindicatorsstatue',{params:params}).then((result) => {
+                console.log(result);
+                this.getData()
+            }).catch((err)=>{
+               
+            })
+        },
+        // 新增指标定义校验
+        submitForm(formName){
+            this.$refs[formName].validate((valid) => {
+                if (valid) {
+                    console.log('已全部填完');
+                    this.addForm()
+                } else {
+                  console.log('error submit!!');
+                  return false;
+                }
+            });
+        },
+        // 确认新增指标定义
+        addForm(){
+            let params = this.tableObject
+            this.$http.post('/api/indicatorsapi/addindicators',params).then((result) => {
+                console.log(result);
+                this.getData()
+                this.dialogVisible = false
+            }).catch((err)=>{
+                
+            })
+        },
+        // 清除搜索条件
+        resetForm(formName){
+            this.$refs[formName].resetFields()
         }
+    },
+    created(){
+        this.getData()
     }
 }
