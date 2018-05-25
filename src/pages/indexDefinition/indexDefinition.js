@@ -86,7 +86,11 @@ export default {
         },
         // 请求指标统计方式
         getCountMethod(){
-            this.$http.post('/api/indicatorsapi/getallcountmethod',{params:params}).then((result) => {
+            let params = {
+                start_index:null,
+                total:null
+            };
+            this.$http.get('/api/indicatorsapi/getallcountmethod',{params:params}).then((result) => {
                 console.log(result);
                 // this.arr = result
             }).catch((err)=>{
@@ -106,7 +110,7 @@ export default {
                
             })
         },
-        // 新增指标定义校验
+        // 新增校验
         submitForm(formName){
             this.$refs[formName].validate((valid) => {
                 if (valid) {
@@ -118,7 +122,7 @@ export default {
                 }
             });
         },
-        // 确认新增指标定义
+        // 确认新增
         addForm(){
             let params = this.tableObject
             this.$http.post('/api/indicatorsapi/addindicators',params).then((result) => {
@@ -136,5 +140,6 @@ export default {
     },
     created(){
         this.getData()
+        this.getCountMethod()
     }
 }

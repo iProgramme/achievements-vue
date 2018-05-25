@@ -57,7 +57,7 @@
             title="新增考核指标"
             :visible.sync="dialogVisible"
             width="500px" class="performance-dialog">
-            <el-form :model="tableObject" :rules="rules" status-icon ref="tableObject" label-width="100px" class="demo-ruleForm">
+            <el-form :model="tableObject" :rules="rules" status-icon ref="tableObject" label-width="120px" class="demo-ruleForm">
                 <el-form-item label="指标名称" prop="indicator_name">
                     <el-input v-model="tableObject.indicator_name" placeholder="请输入指标名称"></el-input>
                 </el-form-item>

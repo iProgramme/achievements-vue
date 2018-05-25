@@ -53,7 +53,6 @@ export default {
                         children:[
                             {name:'/page4',url:'/page4',title:'页面4'},
                             {name:'/indexDefinition',url:'/indexDefinition',title:'指标定义维护'},
-                            {name:'/indexExpression',url:'/indexExpression',title:'指标公式维护'},
                             {name:'/judgeMethod',url:'/judgeMethod',title:'考核办法维护'},
                             {name:'/judgeDimension',url:'/judgeDimension',title:'考核维度维护'},
                             {name:'/judgeDetail',url:'/judgeDetail',title:'考核细项维护'},
