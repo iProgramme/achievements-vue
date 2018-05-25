@@ -1,4 +1,5 @@
 import axios from 'axios'
+import message from 'element-ui'
 let params = {appppp:1111}
 axios.defaults.params = Object.assign({}, params)
 // console.log(axios.defaults);
@@ -14,7 +15,7 @@ axios.interceptors.response.use((response) => {
             return response
         }
         if(response.state == '0'){
-            this.$message({
+            message.Message({
                 showClose: true,
                 message: '请求失败',
                 type: 'error'
@@ -23,15 +24,15 @@ axios.interceptors.response.use((response) => {
     }
     return response;
 }, function (error) {
-    this.$message({
+    message.Message({
         showClose: true,
         message: '网络原因，请求失败，请检查网络设置',
         type: 'error'
     });
     if (error.response) {
-        console.error(error);
+        // console.error(error);
     }else{
-        console.error(error.message);
+        // console.error(error.message);
     }
     return {}
 });

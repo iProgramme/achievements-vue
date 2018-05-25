@@ -46,27 +46,43 @@ export default {
                 count_method:[{required:true,message:'请选择统计方式',trigger:'blur'}],
             },
             // 翻页
+            page:{
+                start_index:1,
+                total:100
+            },
             currentPage:1,
-            total:1000
-
-            
+            total:1000,
+            timeOut:null,
+            pageNumber:[10,25,50,100]
         };
     },
     methods: {
+        // todo 翻页存在问题，当选到最后一页，再将100条/页切换到400时，会导致多请求一次
         // 请求表格
-        getData(currentPage){
+        getData(type){
             let defaultParams = {
-                start_index:currentPage || 1,
-                total:this.total
+                start_index: this.page.start_index,
+                total:this.page.total
             }
-            console.log(defaultParams);
             let params = Object.assign(defaultParams,this.tableSearch)
-            this.$http.get('/api/indicatorsapi/getindicators',{params:params}).then((result) => {
-                console.log(result);
-                this.arr = result
-            }).catch((err)=>{
-               
-            })
+            clearTimeout(this.timeOut)
+            this.timeOut = setTimeout(() => {
+                this.$http.get('/api/indicatorsapi/getindicators',{params:params}).then((result) => {
+                    console.log(result);
+                    this.arr = result
+                }).catch((err)=>{
+                
+                })
+            }, 0); 
+        },
+        // 翻页
+        sizeChange(total){
+            this.page.total = total
+            this.getData()
+        },
+        currentChange(currentPage){
+            this.page.start_index = currentPage
+            this.getData()
         },
         // 请求指标统计方式
         getCountMethod(){

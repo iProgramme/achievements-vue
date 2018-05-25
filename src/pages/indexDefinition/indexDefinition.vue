@@ -43,11 +43,11 @@
         <div class="main-space"></div>    
         <!-- 分页 -->
         <el-pagination
-        @size-change="getData(currentPage)"
-        @current-change="getData(currentPage)"
-        :current-page.sync="currentPage"
-        :page-sizes="[100, 200, 300, 400]"
-        :page-size="100"
+        @size-change="sizeChange"
+        @current-change="currentChange"
+        :current-page="currentPage"
+        :page-sizes="pageNumber"
+        :page-size="10"
         layout="total, sizes, prev, pager, next, jumper"
         :total="total">
         </el-pagination>

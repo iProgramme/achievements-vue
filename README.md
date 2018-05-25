@@ -58,3 +58,45 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
         :label="item.name">
     </el-table-column>
     ```
+4. 请求错误提示统一采用可关闭的 [this.$message](http://element-cn.eleme.io/?#/zh-CN/component/message#ke-guan-bi "this.$message") (在core模块封装，不需要再各个页面处理错误数据)
+
+5. 搜索栏的搜索表单对象都为 tableSearch
+
+6. 分页规范
+
+```
+<el-pagination
+	@size-change="sizeChange"
+	@current-change="currentChange"
+	:current-page="currentPage"
+	:page-sizes="pageNumber"
+	:page-size="10"
+	layout="total, sizes, prev, pager, next, jumper"
+	:total="total">
+</el-pagination>
+```
+```
+page:{
+	start_index:1,
+	total:100
+},
+currentPage:1,
+total:1000,
+timeOut:null,
+pageNumber:[10,25,50,100]
+// page -> 需要传给后台的
+// currentPage -> 当前页码
+// total -> 总数据条数，需从后台取
+// timeOut -> 定时器，用来清除翻页导致的重复请求
+// pageNumber -> 可选的 每页展示多少条数据
+```
+```
+sizeChange(total){
+	this.page.total = total
+	this.getData()
+},
+currentChange(currentPage){
+	this.page.start_index = currentPage
+	this.getData()
+}
+```
