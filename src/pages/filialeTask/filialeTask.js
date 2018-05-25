@@ -3,10 +3,10 @@ export default {
     data() {
         return {
             // 搜索表单
-            formInline: {
-                user: '',
-                region: '',
-                creationTime:''
+            tableSearch:{
+                task_name:'',
+                create_time:'',
+                task_statue:'',
             },
             // 弹窗表单
             value6:'',            
@@ -21,7 +21,7 @@ export default {
                 resource: '',
                 desc: ''
             },
-            // 其他
+            // 表格内容
             tableData: [
                 {
                     orderNumber: '2016-05-02',
@@ -60,35 +60,93 @@ export default {
                     startTime:'123'
                 },
             ],
+            // 表头
+            tableThead: [
+                {name:'序号',value:'orderNumber'},
+                {name:'任务名称',value:'taskName'},
+                {name:'考核起止时间',value:'beginTime'},
+                {name:'任务分发人',value:'people'},
+                {name:'任务分发状态',value:'status'},
+                {name:'创建时间',value:'startTime'},
+            ],
+            // 分页条
+            currentPage: 1,
+            total: 1000,
+            timeOut: null,
+            pageNumber: [10,20,50],
+            page:{
+                start_index: 1,
+                total: 1000
+            },
             dialogVisible:false,
-            currentPage4: 4,            
+            rules: {
+              name: [
+                { required: true, message: '请输入活动名称', trigger: 'blur' },
+                { min: 1, max: 50, message: '长度在 1 到 50 个字符', trigger: 'blur' }
+              ],
+              date: [
+                { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
+              ],
+            }         
               
         }
     },
     methods: {
-        // 搜索表单
-        submitForm(formName) {
-            console.log(formName);
-            
+        resetForm() {
+            this.tableSearch.task_name = '';
+            this.tableSearch.create_time = '';
+            this.tableSearch.task_statue = '';
         },
-        resetForm(formName){
-            console.log(this.$route);
-            
-            this.$refs[formName].resetFields()
+        searchForm() {
+            this.getData()
         },
-        // 分页
-        handleSizeChange(val) {
-            console.log(`每页 ${val} 条`);
+        // 翻页
+        sizeChange(){
+            console.log(1);
+            this.getData()
         },
-        handleCurrentChange(val) {
-            console.log(`当前页: ${val}`);
+        currentChange(){
+            console.log(2);
+            this.getData()
+        },
+        // 请求表格
+        getData(currentPage){
+            let defaultParams = {
+                start_index: this.page.start_index,
+                total: this.page.total
+            }
+            let params = Object.assign(defaultParams,this.tableSearch)
+            console.log(params)
+            this.$http.get('api/taskapi/gettask',{params: params}).then((result) => {
+                console.log(result);
+                // this.tableData = result
+                // this.total = result.total
+            }).catch((err)=>{
+                console.log(err);
+            })
+            this.tableData.forEach(item=>item.beginTime = item.beginTime + '-' +item.endTime)
         },
         // 关闭弹窗
         handleClose(done) {
         
-        }
+        },
+        submitForm(formName) {
+            let creatParams = {
+                task_name: this.ruleForm.task_name,
+                start_time: this.ruleForm.start_time,
+                end_time: this.ruleForm.end_time,
+                task_type: this.ruleForm.task_type,
+            }
+            this.$http.get('api/taskapi/addtask',{params: creatParams}).then((result) => {
+                console.log(result);
+                // this.tableData = result
+                // this.total = result.total
+            }).catch((err)=>{
+                console.log(err);
+            })
+        },
     },
     created(){
-        
+        this.getData()
     }
 }
