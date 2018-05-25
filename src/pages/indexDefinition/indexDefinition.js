@@ -57,7 +57,6 @@ export default {
         };
     },
     methods: {
-        // todo 翻页存在问题，当选到最后一页，再将100条/页切换到400时，会导致多请求一次
         // 请求表格
         getData(type){
             let defaultParams = {

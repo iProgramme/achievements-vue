@@ -2,27 +2,26 @@
     <div class="filiale-judge-manage">
         <!-- 搜索 -->
         <el-form :inline="true" :model="tableSearch" ref="tableSearch" class="demo-form-inline">
-            <el-form-item label="绩效方案名称" prop="methodName">
-                <el-input v-model="tableSearch.methodName" placeholder="请输入绩效方案名称"></el-input>
+            <el-form-item label="绩效方案名称" prop="templete_name">
+                <el-input v-model="tableSearch.templete_name" placeholder="请输入绩效方案名称"></el-input>
             </el-form-item>
-            <el-form-item label="审核状态" prop="judgeStatus">
-                <el-select v-model="tableSearch.judge" placeholder="任务审核状态">
-                <el-option label="已审核" value="yishenhe"></el-option>
-                <el-option label="未审核" value="weishenhe"></el-option>
+            <el-form-item label="审核状态" prop="templete_check_statue">
+                <el-select v-model="tableSearch.templete_check_statue" placeholder="--请选择--">
+                    <el-option v-for="item in templeteCheckStatueList" :key="item.id" :label="item.name" :value="item.id"></el-option>
                 </el-select>
             </el-form-item>
-            <el-form-item label="使用状态" prop="useStatus">
-                <el-select v-model="tableSearch.region" placeholder="任务使用状态">
-                <el-option label="已使用" value="yishiyong"></el-option>
-                <el-option label="未使用" value="weishiyong"></el-option>
+            <el-form-item label="使用状态" prop="statue">
+                <el-select v-model="tableSearch.statue" placeholder="--请选择--">
+                    <el-option v-for="item in statueList" :key="item.id" :label="item.name" :value="item.id"></el-option>
                 </el-select>
             </el-form-item>
+            
             <el-form-item>
                 <el-button @click="resetForm('tableSearch')">清除查询条件</el-button>
-                <el-button type="primary" @click="submitForm('tableSearch')">查询</el-button>
+                <el-button type="primary" @click="getData()">查询</el-button>
             </el-form-item>
             <el-form-item class="open-dialog">
-                <el-button type="primary" @click="routerToAdd">新增考核方案</el-button>
+                <el-button type="primary" @click="routerToAdd('new')">新增考核方案</el-button>
             </el-form-item>
         </el-form>
         <div class="main-space"></div>
@@ -32,49 +31,33 @@
         stripe border
         style="width: 100%">
             <el-table-column
-            prop="orderNumber"
-            label="序号">
-            </el-table-column>
-            <el-table-column
-            prop="methodName"
-            label="绩效方案名称">
-            </el-table-column>
-            <el-table-column
-            prop="people"
-            label="创建人">
-            </el-table-column>
-            <el-table-column
-            prop="startTime"
-            label="创建时间">
-            </el-table-column>
-            <el-table-column
-            prop="status"
-            label="审核状态">
-            </el-table-column>
-            <el-table-column
-            prop="status2"
-            label="使用状态">
+            v-for="item in tableThead"
+            :key="item.value"
+            :prop="item.value"
+            :label="item.name">
             </el-table-column>
             
             <el-table-column label="操作">
                 <template slot-scope="scope">
+                    <!-- todo 判断按钮显示方式 -->
                     <el-button type="text" @click="routerToDetail(scope.row)">查看详情</el-button>
-                    <el-button type="text">删除</el-button>
-                    <el-button type="text">分发</el-button>
+                    <el-button type="text" @click="changeStatue(scope.row)" v-if="!scope.row.statue">启用</el-button>
+                    <el-button type="text" @click="changeStatue(scope.row)" v-if="scope.row.statue">停用</el-button>
+                    <el-button type="text" @click="routerToAdd('change',scope.row)" v-if="scope.row.templete_check_statue == 1">修改</el-button>
                 </template>
                 
             </el-table-column>
         </el-table>
-        <div class="main-space"></div>    
+        <div class="main-space"></div>
         <!-- 分页 -->
         <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page="currentPage4"
-        :page-sizes="[100, 200, 300, 400]"
-        :page-size="100"
+        @size-change="sizeChange"
+        @current-change="currentChange"
+        :current-page="currentPage"
+        :page-sizes="pageNumber"
+        :page-size="10"
         layout="total, sizes, prev, pager, next, jumper"
-        :total="1400">
+        :total="total">
         </el-pagination>
     </div>
 </template>
