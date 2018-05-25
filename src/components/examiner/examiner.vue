@@ -3,10 +3,10 @@
         <el-dialog title="发起绩效考核" :visible.sync="obj.flag" width="520px" class="performance-dialog">
             <el-form :model="tableObject" status-icon ref="tableObject" label-width="110px" class="demo-ruleForm">
                 <el-form-item label="绩效考核名称：" prop="name1">
-                    <el-input v-model="tableObject.name1" placeholder="请输入绩效考核名称"></el-input>
+                    <el-input v-model="tableObject.name1" placeholder="请输入绩效考核名称" style="width:350px"></el-input>
                 </el-form-item>
                 <el-form-item label="考核起止时间：" prop="name2">
-                    <el-date-picker type="daterange" v-model="valuedate" start-placeholder="考核开始时间" range-separator="至" end-placeholder="考核结束时间" size="mini"></el-date-picker>
+                    <el-date-picker type="daterange" v-model="valuedate" start-placeholder="考核开始时间" range-separator="至" end-placeholder="考核结束时间" align="center"></el-date-picker>
                 </el-form-item>
                 <el-form-item label="下载考核方案：" prop="name3">
                     <el-select v-model="tableObject.judgeStatus" placeholder="--请选择--">
